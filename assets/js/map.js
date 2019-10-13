@@ -285,9 +285,42 @@ Map.addFastTravelMarker = function()
         $.each(fastTravelData, function (key, value)
         {
             var marker = L.marker([value.x, value.y], {
-                icon: L.AwesomeMarkers.icon({
-                    iconUrl: './assets/images/icons/fast-travel.png',
-                    markerColor: 'gray'
+                icon: L.canvasIcon({
+                    iconSize: [35,45],
+                    iconAnchor: [17,45],
+                    popupAnchor:[1,-32],
+                    shadowAnchor:[10,12],
+                    shadowSize:[36,16],
+                    fillStyle: 'rgba(255,0,0,1)',
+                    drawIcon: function (icon, type) {
+                        if (type == 'icon')
+                        {
+                            var size = L.point(this.options.iconSize);
+                            var center = L.point(Math.floor(size.x / 2), Math.floor(size.y / 2));
+
+                            var base_image = new Image();
+                            base_image.src = './assets/images/icons/fast-travel.png';
+
+                            var ctx = icon.getContext('2d');
+
+                            ctx.beginPath();
+                            base_image.onload = function() {
+                                ctx.drawImage(base_image, -5, 0, 43, 43);
+                            };
+
+                            ctx.arc(17, 17, 17, 3.141592653589793, 4.71238898038469);
+                            ctx.arc(17, 17, 17, 4.71238898038469,  6.283185307179586);
+                            ctx.moveTo(0, 17);
+                            ctx.lineTo(0, 19);
+                            ctx.lineTo(17, 45);
+                            ctx.lineTo(17*2, 19);
+                            ctx.lineTo(17*2, 17);
+                            ctx.fillStyle = '#575757';
+                            ctx.fill();
+                            ctx.closePath();
+
+                        }
+                    }
                 })
             });
 
@@ -347,9 +380,42 @@ Map.addMadamNazar = function ()
     if(enabledTypes.includes('nazar'))
     {
         var marker = L.marker([nazarLocations[nazarCurrentLocation].x, nazarLocations[nazarCurrentLocation].y], {
-            icon: L.AwesomeMarkers.icon({
-                iconUrl: './assets/images/icons/nazar.png',
-                markerColor: 'nazar'
+            icon: L.canvasIcon({
+                iconSize: [35,45],
+                iconAnchor: [17,45],
+                popupAnchor:[1,-32],
+                shadowAnchor:[10,12],
+                shadowSize:[36,16],
+                fillStyle: 'rgba(255,0,0,1)',
+                drawIcon: function (icon, type) {
+                    if (type == 'icon')
+                    {
+                        var size = L.point(this.options.iconSize);
+                        var center = L.point(Math.floor(size.x / 2), Math.floor(size.y / 2));
+
+                        var base_image = new Image();
+                        base_image.src = './assets/images/icons/nazar.png';
+
+                        var ctx = icon.getContext('2d');
+
+                        ctx.beginPath();
+                        base_image.onload = function() {
+                            ctx.drawImage(base_image, -5, 0, 43, 43);
+                        };
+
+                        ctx.arc(17, 17, 17, 3.141592653589793, 4.71238898038469);
+                        ctx.arc(17, 17, 17, 4.71238898038469,  6.283185307179586);
+                        ctx.moveTo(0, 17);
+                        ctx.lineTo(0, 19);
+                        ctx.lineTo(17, 45);
+                        ctx.lineTo(17*2, 19);
+                        ctx.lineTo(17*2, 17);
+                        ctx.fillStyle = '#ce3c29';
+                        ctx.fill();
+                        ctx.closePath();
+
+                    }
+                }
             })
         });
 
@@ -377,9 +443,42 @@ Map.addTreasures = function ()
                 radius: value.radius
             });
             var marker = L.marker([value.x, value.y], {
-                icon: L.AwesomeMarkers.icon({
-                    iconUrl: './assets/images/icons/treasure.png',
-                    markerColor: 'beige'
+                icon: L.canvasIcon({
+                    iconSize: [35,45],
+                    iconAnchor: [17,45],
+                    popupAnchor:[1,-32],
+                    shadowAnchor:[10,12],
+                    shadowSize:[36,16],
+                    fillStyle: 'rgba(255,0,0,1)',
+                    drawIcon: function (icon, type) {
+                        if (type == 'icon')
+                        {
+                            var size = L.point(this.options.iconSize);
+                            var center = L.point(Math.floor(size.x / 2), Math.floor(size.y / 2));
+
+                            var base_image = new Image();
+                            base_image.src = './assets/images/icons/treasure.png';
+
+                            var ctx = icon.getContext('2d');
+
+                            ctx.beginPath();
+                            base_image.onload = function() {
+                                ctx.drawImage(base_image, -5, 0, 43, 43);
+                            };
+
+                            ctx.arc(17, 17, 17, 3.141592653589793, 4.71238898038469);
+                            ctx.arc(17, 17, 17, 4.71238898038469,  6.283185307179586);
+                            ctx.moveTo(0, 17);
+                            ctx.lineTo(0, 19);
+                            ctx.lineTo(17, 45);
+                            ctx.lineTo(17*2, 19);
+                            ctx.lineTo(17*2, 17);
+                            ctx.fillStyle = '#ffc990';
+                            ctx.fill();
+                            ctx.closePath();
+
+                        }
+                    }
                 })
             });
 
