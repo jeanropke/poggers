@@ -11,8 +11,8 @@ Map.init = function ()
 {
     var mapLayers = [];
     mapLayers['Default'] = L.tileLayer('https://s.rsg.sc/sc/images/games/RDR2/map/game/{z}/{x}/{y}.jpg', { noWrap: true});
-    mapLayers['Detailed'] = L.tileLayer('assets/maps/detailed/{z}/{x}_{y}.jpg', { noWrap: true});
-    mapLayers['Dark'] = L.tileLayer('assets/maps/darkmode/{z}/{x}_{y}.jpg', { noWrap: true});
+    mapLayers['Detailed'] = L.tileLayer('https://jeanropke.github.io/RDR2CollectorsMap/assets/maps/detailed/{z}/{x}_{y}.jpg', { noWrap: true});
+    mapLayers['Dark'] = L.tileLayer('https://jeanropke.github.io/RDR2CollectorsMap/assets/maps/darkmode/{z}/{x}_{y}.jpg', { noWrap: true});
 
     map = L.map('map', {
         preferCanvas: true,
