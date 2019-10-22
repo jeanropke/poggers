@@ -51,8 +51,13 @@ function init()
 
 
 
-    if(typeof Cookies.get('removed-items') === 'undefined')
+    if(typeof Cookies.get('removed-items') === 'undefined') {
         Cookies.set('removed-items', '', { expires: resetMarkersDaily ? 1 : 999});
+        disableMarkers = [];
+    }
+    else {        
+        disableMarkers = Cookies.get('removed-items').split(';');
+    }
 
     if(typeof Cookies.get('map-layer') === 'undefined')
         Cookies.set('map-layer', 'Detailed', { expires: 999 });
@@ -80,7 +85,6 @@ function init()
     lang = Cookies.get('language');
     $("#language").val(lang);
 
-    disableMarkers = Cookies.get('removed-items').split(';');
 
     Language.load();
 
