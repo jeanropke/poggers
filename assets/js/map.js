@@ -9,10 +9,14 @@ var Map = {
 var myRenderer = L.canvas({ padding: 0.5 });
 Map.init = function ()
 {
+    var southWestTiles = L.latLng(-144, 0),
+        northEastTiles = L.latLng(0, 176),
+        boundsTiles = L.latLngBounds(southWestTiles, northEastTiles);
+
     var mapLayers = [];
-    mapLayers['Default'] = L.tileLayer('https://s.rsg.sc/sc/images/games/RDR2/map/game/{z}/{x}/{y}.jpg', { noWrap: true});
-    mapLayers['Detailed'] = L.tileLayer('https://jeanropke.github.io/RDR2CollectorsMap/assets/maps/detailed/{z}/{x}_{y}.jpg', { noWrap: true});
-    mapLayers['Dark'] = L.tileLayer('https://jeanropke.github.io/RDR2CollectorsMap/assets/maps/darkmode/{z}/{x}_{y}.jpg', { noWrap: true});
+    mapLayers['Default'] = L.tileLayer('https://s.rsg.sc/sc/images/games/RDR2/map/game/{z}/{x}/{y}.jpg', { noWrap: true, bounds: boundsTiles });
+    mapLayers['Detailed'] = L.tileLayer('https://jeanropke.github.io/RDR2CollectorsMap/assets/maps/detailed/{z}/{x}_{y}.jpg', { noWrap: true, bounds: boundsTiles});
+    mapLayers['Dark'] = L.tileLayer('https://jeanropke.github.io/RDR2CollectorsMap/assets/maps/darkmode/{z}/{x}_{y}.jpg', { noWrap: true, bounds: boundsTiles});
 
     map = L.map('map', {
         preferCanvas: true,
@@ -122,13 +126,14 @@ Map.addMarkers = function() {
 
     Menu.refreshMenu();
 
+
 };
 
 Map.loadWeeklySet = function()
 {
-    $.getJSON(`data/weekly.json?nocache=${nocache}`)
+    $.getJSON(`https://jeanropke.github.io/RDR2CollectorsMap/data/weekly.json?nocache=${nocache}`)
         .done(function(data) {
-            weeklySetData = data;
+            weeklySetData = data[weeklySet];
             Map.loadFastTravels();
         });
 };
@@ -218,7 +223,7 @@ Map.addMarkerOnMap = function(value)
                         ctx.lineTo(17, 45);
                         ctx.lineTo(17*2, 19);
                         ctx.lineTo(17*2, 17);
-                        ctx.fillStyle = dayColor[parseInt(value.day)-1];
+                        ctx.fillStyle = isWeekly ? '#6da724' : dayColor[parseInt(value.day)-1];
                         ctx.fill();
                         ctx.closePath();
 
@@ -371,7 +376,14 @@ Map.loadMadamNazar = function()
     $.getJSON(`data/nazar.json?nocache=${nocache}`)
         .done(function(data) {
             nazarLocations = data;
-            Map.loadTreasures();
+
+            $.getJSON('https://madam-nazar-location-api.herokuapp.com/location/current')
+                .done(function(nazarData) {
+                    nazarCurrentLocation = nazarData.data._id-1;
+                    nazarCurrentDate = nazarData.dataFor;
+                    Map.loadTreasures();
+                });
+
     });
 };
 

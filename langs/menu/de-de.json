@@ -1,5 +1,5 @@
 [
-	{"key": "menu.collectables", "value": "Sammelstücke"},
+	{"key": "menu.collectables", "value": "Sammlungen"},
 	{"key": "menu.hide_all", "value": "Alle verbergen"},
 	{"key": "menu.show_all", "value": "Alle anzeigen"},
 	{"key": "menu.american_flowers", "value": "Wildblumen"},
@@ -18,7 +18,7 @@
 	{"key": "menu.card_wands", "value": "Tarotkarten - Stäbe"},	
 	{"key": "menu.search", "value": "Suche"},
 	{"key": "menu.settings", "value": "Einstellungen"},
-	{"key": "menu.day", "value": "Tag"},
+	{"key": "menu.day", "value": "Landkarte"},
 	{"key": "menu.tool_type", "value": "Werkzeug-Typ"},
 	{"key": "menu.tool_type.no_tools", "value": "Kein Werkzeug"},
 	{"key": "menu.tool_type.shovel", "value": "Schaufel"},
@@ -26,7 +26,7 @@
 	{"key": "menu.tool_type.all", "value": "Alle"},
 	{"key": "menu.language", "value": "Sprache"},
 	{"key": "menu.enable_route", "value": "Dynamische Route aktivieren"},
-	{"key": "menu.enable_custom_route", "value": "Benutz. Route aktivieren"},
+	{"key": "menu.enable_custom_route", "value": "Benutzerdefinierte Route aktivieren"},
 	{"key": "menu.yes", "value": "Ja"},
 	{"key": "menu.no", "value": "Nein"},
 	{"key": "menu.clear", "value": "Löschen"},
@@ -44,5 +44,9 @@
 	{"key": "menu.custom_routes", "value": "Benutzerdefinierte Route"},
 	{"key": "menu.import_route", "value": "Route importieren"},
 	{"key": "menu.export_route", "value": "Route exportieren"},
-	{"key": "menu.treasures", "value": "Schatzkarten"}
+	{"key": "menu.treasures", "value": "Schatzkarten"},
+	{"key": "routes.exported", "value": "Route copied to clipboard!"},
+	{"key": "routes.import_prompt", "value": "Enter the route code"},
+	{"key": "routes.empty", "value": "Empty route"},
+	{"key": "routes.invalid", "value": "Invalid route"}
 ]

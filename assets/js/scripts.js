@@ -32,16 +32,18 @@ var lang;
 var languageData = [];
 
 var nazarLocations = [];
-var nazarCurrentLocation = 4;
-var nazarCurrentDate = '13th October';
+var nazarCurrentLocation;
+var nazarCurrentDate;
 
 var fastTravelData;
 
+var weeklySet = 'cheater_set';
 var weeklySetData = [];
 var date;
 var nocache = 20;
 
 var wikiLanguage = [];
+
 
 function init()
 {
