@@ -37,7 +37,7 @@ var nazarCurrentDate;
 
 var fastTravelData;
 
-var weeklySet = 'cheater_set';
+var weeklySet = 'witch_set';
 var weeklySetData = [];
 var date;
 var nocache = 30;
