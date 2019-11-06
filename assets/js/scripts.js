@@ -352,3 +352,4 @@ function addZeroToNumber(number)
     return number;
 }
 
+window.addEventListener("DOMContentLoaded", init);
