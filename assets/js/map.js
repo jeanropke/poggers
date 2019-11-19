@@ -82,7 +82,7 @@ Map.init = function() {
 
 Map.loadMarkers = function() {
   markers = [];
-  $.getJSON(`data/items.json?nocache=${nocache}`).done(function(data) {
+  $.getJSON(`./data/items.json?nocache=${nocache}`).done(function(data) {
     markers = data;
     Map.addMarkers();
   });
@@ -287,7 +287,7 @@ Map.removeCollectedMarkers = function() {
 };
 
 Map.loadFastTravels = function() {
-  $.getJSON(`data/fasttravels.json?nocache=${nocache}`).done(function(data) {
+  $.getJSON(`./data/fasttravels.json?nocache=${nocache}`).done(function(data) {
     fastTravelData = data;
     Map.loadMadamNazar();
   });
@@ -379,7 +379,7 @@ Map.addCoordsOnMap = function(coords) {
 };
 
 Map.loadMadamNazar = function() {
-  $.getJSON(`data/nazar.json?nocache=${nocache}`).done(function(data) {
+  $.getJSON(`./data/nazar.json?nocache=${nocache}`).done(function(data) {
     nazarLocations = data;
 
     $.getJSON(
@@ -449,7 +449,7 @@ Map.addMadamNazar = function() {
 };
 
 Map.loadTreasures = function() {
-  $.getJSON(`data/treasures.json?nocache=${nocache}`).done(function(data) {
+  $.getJSON(`./data/treasures.json?nocache=${nocache}`).done(function(data) {
     treasureData = data;
     Map.loadMarkers();
   });
