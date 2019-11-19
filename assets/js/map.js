@@ -223,7 +223,6 @@ Map.addMarkerOnMap = function(value) {
   });
 
   function videoEmbedLink(url) {
-    console.log(url);
     let newUrl;
     newUrl = url.split("?v=")[1].replace("&t=", "?start=");
     newUrl = `https://youtube.com/embed/${newUrl.substring(
