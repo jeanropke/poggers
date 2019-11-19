@@ -130,8 +130,9 @@ Map.addMarkers = function() {
 
 Map.loadWeeklySet = function() {
   $.getJSON(
-    `https://jeanropke.github.io/RDR2CollectorsMap/data/weekly.json?nocache=${nocache}`
+    `https://jeanropke.github.io/RDR2CollectorsMap/data/weekly.json?nocache=${nocache}?=v5`
   ).done(function(data) {
+    console.log(data)
     weeklySetData = data[weeklySet];
     Map.loadFastTravels();
   });
@@ -179,6 +180,7 @@ Map.addMarkerOnMap = function(value) {
   var dayColor = ["#38aadd", "#f69730", "#d051b8"];
   var isWeekly =
     weeklySetData.filter(weekly => {
+      console.log(weekly)
       return weekly.item === value.text;
     }).length > 0;
 
@@ -223,7 +225,6 @@ Map.addMarkerOnMap = function(value) {
   });
 
   function videoEmbedLink(url) {
-    console.log(url);
     let newUrl;
     newUrl = url.split("?v=")[1].replace("&t=", "?start=");
     newUrl = `https://youtube.com/embed/${newUrl.substring(
