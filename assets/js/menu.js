@@ -9,7 +9,7 @@ Menu.refreshMenu = function ()
     $.each(categories, function (key, value)
     {
         $(`.menu-hidden[data-type=${value}]`).children('p.collectible').remove();
-
+        console.log(markers)
         markers.filter(function(item)
         {
             if(item.day == 1 && item.icon == value)
