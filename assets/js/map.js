@@ -4,7 +4,7 @@
  */
 
 var weeklySetDefined = "bowmans_set";
-
+var markers = [];
 var Map = {
   minZoom: 2,
   maxZoom: 7
