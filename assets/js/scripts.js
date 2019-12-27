@@ -37,10 +37,9 @@ var nazarCurrentDate;
 
 var fastTravelData;
 
-var weeklySet = "ancient_tools_set";
 var weeklySetData = [];
 var date;
-var nocache = 34;
+var nocache = 23;
 
 var wikiLanguage = [];
 
